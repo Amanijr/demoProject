@@ -6,9 +6,14 @@ import org.springframework.stereotype.Repository;
 
 import com.example.Registerlogin.Entity.User;
 
+import java.util.Optional;
+
 @EnableJpaRepositories
 @Repository
 public interface UserRepo extends JpaRepository<User,Integer>{
-    
 
+
+    Optional<User> findUserByTinAndPassword(String tin, String password);
+
+    User findUserByTin(String tin);
 }
